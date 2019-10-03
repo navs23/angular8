@@ -1,0 +1,29 @@
+<h1>Edit Your Profile</h1>
+<hr>
+<!-- <div class="col-md-6">
+    <label>First Name</label>
+    <input type="text" [formControl]="firstName" />
+    <label>Last Name</label>
+    <input type="text" [formControl]="lastName" />
+    <br/>
+    <br/>
+  <button type="submit" class="btn btn-primary">Save</button>
+  <button type="button" class="btn btn-default">Cancel</button>
+</div> -->
+
+<form autocomplete="off" (ngSubmit)="saveProfile()" [formGroup]="profileForm">
+    <div class="form-group" [ngClass]="{'error': !validateFirstName() }" >
+      <label for="FirstName">First Name:</label>   
+       <em *ngIf="!validateFirstName()" >required</em>
+      <input formControlName="firstName" type="text" class="form-control" placeholder="First Name..."  />   
+       </div>
+    <div class="form-group" [ngClass]="{'error': !validateLastName()}"  >
+        <label for="lastName">Last Name:</label>      
+        <em *ngIf="!validateLastName()" >required</em>
+        <input formControlName="lastName" type="text" class="form-control" placeholder="Last Name..."  /> 
+      </div>
+        
+    <button type="submit" class="btn btn-primary">Save Changes</button>
+    <button type="button" [routerLink] ="['/events']"class="btn btn-default">Cancel</button>
+  </form>
+  

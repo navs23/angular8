@@ -1,0 +1,5 @@
+export * from './event.model'
+export * from './event.service'
+export * from './restricted-words.validator'
+//export * from './create-event.component'
+export * from '../shared/duration.pipe'
